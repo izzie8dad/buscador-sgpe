@@ -1,12 +1,37 @@
 # SGPe - Buscador de paginas 1.25.5
 
-Extensao Chrome Manifest V3 para usar o Buscador de paginas e documentos na Pasta Digital (Aba Pecas) do SGPe.
+Extensao Chrome Manifest V3 que adiciona um buscador de paginas e documentos a Pasta Digital
+(Aba Pecas) do SGPe - o sistema de Processo Eletronico do Governo do Estado de Santa Catarina.
 
-Build pronta para publicacao na Chrome Web Store. Antes de enviar, revise os textos em
-`store-assets/` (descricao, justificativa de permissao, unico proposito) e
-`privacy-policy.html` - eles ja refletem o comportamento atual (fetch same-origin para
-`sgpe.sea.sc.gov.br` na busca por palavra-chave, processamento 100% local via `pdf.js`,
-sem envio a terceiros).
+## O que e e para quem e util
+
+O SGPe e usado por servidores publicos catarinenses para tramitar processos administrativos.
+Processos grandes acumulam centenas ou milhares de paginas espalhadas entre varias pecas
+(documentos) e apensados/juntados (outros processos anexados), e a interface nativa nao tem
+uma forma rapida de pular direto para uma pagina especifica.
+
+Esta extensao - nao-oficial, independente e sem qualquer vinculo com o Governo de SC -
+adiciona:
+
+- **Busca por numero de pagina**, abrindo direto a peca certa mesmo em processos com
+  apensados ou com numeracao de pagina irregular (lacunas, reinicios por peca);
+- **Busca por nome de peca**;
+- **Busca por palavra-chave** no texto de todas as pecas de um processo, via `pdf.js`
+  embutido, 100% local;
+- **Item no menu de contexto do Chrome** para buscar uma pagina a partir de qualquer texto
+  selecionado em qualquer aba (ex.: uma referencia de pagina lida num PDF aberto em outra
+  janela).
+
+E util para qualquer servidor(a) com acesso ao SGPe que lide com processos longos com
+frequencia. O codigo e aberto justamente para que outros servidores e desenvolvedores possam
+reportar problemas e contribuir com melhorias - veja "Contribuindo" no fim deste arquivo.
+
+## Privacidade
+
+Processamento 100% local. A unica comunicacao de rede feita pela extensao e um fetch
+same-origin para `sgpe.sea.sc.gov.br` durante a busca por palavra-chave (para ler o conteudo
+das pecas do proprio processo aberto) - nenhum dado e enviado a terceiros. Detalhes completos
+em [`privacy-policy.html`](privacy-policy.html).
 
 ## Mudancas desta versao (1.25.5)
 
@@ -303,26 +328,24 @@ SOL 00002054/2016 (pesado, com apensados grandes) e SCC 00000842/2024 (leve).
   rolagem (resultados e listas de pecas digitalizadas/ignoradas/com erro) tem altura menor
   de proposito, pra nunca exigir arrastar o widget ou dar zoom out pra ver o rodape.
 
-## Instalacao local (teste antes de publicar)
+## Instalacao local
 
-1. Abra `chrome://extensions`.
-2. **Remova ou desative qualquer versao anterior desta extensao antes de carregar esta** -
-   todas usam a mesma variavel de guarda (`window.__codexSgpePageFinderInstalled`); com duas
-   ativas, so a que carregar primeiro instala, mascarando silenciosamente as demais.
-3. Ative `Modo do desenvolvedor`.
-4. Clique em `Carregar sem compactacao`.
-5. Selecione esta pasta (`sgpe-page-finder-extension-1.21.0`, contendo a versao 1.24.0 no
-   `manifest.json`).
-6. Recarregue a aba do SGPe.
+1. Baixe/clone este repositorio.
+2. Abra `chrome://extensions`.
+3. **Remova ou desative qualquer outra copia desta extensao antes de carregar esta** - todas
+   usam a mesma variavel de guarda (`window.__codexSgpePageFinderInstalled`); com duas ativas,
+   so a que carregar primeiro instala, mascarando silenciosamente as demais.
+4. Ative `Modo do desenvolvedor`.
+5. Clique em `Carregar sem compactacao`.
+6. Selecione a pasta deste repositorio.
+7. Recarregue a aba do SGPe.
 
-## Publicacao na Chrome Web Store
+## Contribuindo
 
-O pacote a enviar (zip) so precisa dos arquivos usados em tempo de execucao:
-`manifest.json`, `background.js`, `content-script.js`, `icons/`, `vendor/`. Os textos em
-`store-assets/` (descricao curta/longa, justificativa de permissao, unico proposito,
-screenshots) sao colados nos campos correspondentes do Developer Dashboard, e nao entram no
-zip. `privacy-policy.html` e a fonte do texto que deve estar publicado numa URL publica
-(informada no campo "Privacy policy" do Dashboard) - nao precisa ir dentro do zip.
+Sugestoes, relatos de bugs e pull requests sao bem-vindos. O projeto e ES5 puro, sem etapa de
+build (um unico content script injetado direto no SGPe) - veja
+[`INSTRUCOES.md`](INSTRUCOES.md) para a arquitetura do `content-script.js` e as convencoes de
+versionamento/changelog seguidas a cada mudanca.
 
 ## Como testar a busca por palavra-chave
 

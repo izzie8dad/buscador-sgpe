@@ -134,6 +134,13 @@ como modelo. Independente de ter campo dedicado ou não, garanta que `descricao-
 funcionalidade e o motivo de qualquer acesso mais amplo - é onde o revisor vai ver essa
 informação quando não há campo próprio.
 
+Ao empacotar uma versão para envio (zip), inclua só os arquivos usados em tempo de execução:
+`manifest.json`, `background.js`, `content-script.js`, `icons/`, `vendor/`. Os textos em
+`store-assets/` são colados nos campos correspondentes do Developer Dashboard e não entram no
+zip; `privacy-policy.html` é a fonte do texto publicado numa URL pública (campo "Privacy
+policy" do Dashboard), também fora do zip. Essa é uma tarefa exclusiva do mantenedor no
+Developer Dashboard - não faz parte do README público do repositório.
+
 ### 4.3 Cuidado extra com código que mexe na página do SGPe (não só na UI da extensão)
 
 Isso já causou um bug real neste projeto (ver `## Mudancas da versao 1.25.3` no README):
