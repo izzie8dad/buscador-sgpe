@@ -202,6 +202,21 @@ isso. Em particular:
   mudança não pôde ser testada ao vivo por você.
 - Não crie arquivos de release (`.zip`) a menos que pedido explicitamente.
 
+### 4.8 Controle de versão (git)
+
+- Esta pasta é um repositório git público: https://github.com/izzie8dad/buscador-sgpe
+  (branch `main`). O identidade de commit configurada localmente neste repo é
+  `izzie8dad <izzie8dad@users.noreply.github.com>` — não altere para o nome/e-mail real do
+  usuário sem pedido explícito (decisão consciente para não expor dados pessoais no
+  histórico público).
+- `.claude/` e `*.zip` estão no `.gitignore` — nunca force a inclusão desses.
+- Depois de qualquer mudança de código já validada (ver 4.7) e com o bump de versão feito
+  (4.1), **ofereça** ao usuário criar um commit (nunca commit automaticamente sem pedir —
+  regra geral do ambiente) com uma mensagem curta explicando o "porquê" da mudança.
+- Ao publicar uma nova versão (manifest.json version mudou), ofereça também criar uma tag
+  anotada `vX.Y.Z` (`git tag -a vX.Y.Z -m "..."`) e enviá-la (`git push origin vX.Y.Z`)
+  junto com o commit, mantendo o histórico de tags alinhado ao changelog do README.md.
+
 ## 5. Onde NÃO mexer sem necessidade clara
 
 - `vendor/pdf.min.js`, `vendor/pdf.worker.min.js`, `vendor/LICENSE-pdf.js.txt` — biblioteca
