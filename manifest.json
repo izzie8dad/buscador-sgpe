@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "SGPe - Buscador de paginas",
+  "version": "1.25.5",
+  "description": "Localiza e abre paginas e pecas na Pasta Digital do SGPe; busca por palavra-chave no texto das pecas em PDF.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "scripting",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "https://sgpe.sea.sc.gov.br/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://sgpe.sea.sc.gov.br/*"
+      ],
+      "js": [
+        "content-script.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["vendor/pdf.worker.min.js"],
+      "matches": ["https://sgpe.sea.sc.gov.br/*"]
+    }
+  ]
+}

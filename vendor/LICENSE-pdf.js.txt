@@ -1,0 +1,9 @@
+vendor/pdf.min.js e vendor/pdf.worker.min.js sao a distribuicao oficial do PDF.js (Mozilla),
+versao 3.11.174, licenciada sob Apache License 2.0.
+
+Projeto: https://github.com/mozilla/pdf.js
+Licenca: https://www.apache.org/licenses/LICENSE-2.0
+
+Baixado de https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/ (mirror da distribuicao
+oficial) e verificado por hash SHA-512 contra o valor de integridade (SRI) publicado pelo
+cdnjs para essa versao. Nao foi modificado.

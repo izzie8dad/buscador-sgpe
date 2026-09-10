@@ -1,0 +1,5 @@
+O padrão de host https://sgpe.sea.sc.gov.br/* é necessário porque a extensão funciona só dentro do SGPe (Portal de Processos Eletrônicos de SC), na tela da Pasta Digital (Aba Peças) de um processo.
+
+O content script é injetado para: (1) ler a árvore de peças já carregada na tela e identificar os intervalos de página de cada peça; (2) simular o clique no item quando o usuário busca por número de página ou nome de peça; e (3) na busca por palavra-chave, baixar (fetch same-origin, com a sessão autenticada do usuário) o PDF de cada peça e ler seu texto localmente, indicando em qual peça e página o termo aparece.
+
+Sem esse acesso, a extensão não teria como localizar, abrir nem pesquisar os itens — sua única função. O acesso é restrito a este domínio: nenhum outro site é acessado, nenhuma aba fora dele é lida, e nada é enviado a servidores do desenvolvedor ou de terceiros.

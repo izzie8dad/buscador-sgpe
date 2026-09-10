@@ -1,0 +1,1 @@
+Buscador não oficial do SGPe: abre páginas/peças por número e busca por palavra-chave no texto das peças.

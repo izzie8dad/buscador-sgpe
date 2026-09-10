@@ -1,0 +1,5 @@
+A permissão "contextMenus" adiciona o item "Buscar no processo" ao menu de contexto (botão direito) quando o usuário seleciona um número de página em qualquer texto do navegador.
+
+O item aparece em qualquer aba/janela (não só em sgpe.sea.sc.gov.br) porque, na prática, o número costuma ser lido fora do SGPe - por exemplo, num PDF aberto em outra aba, enquanto a Pasta Digital do processo está aberta em outra. Ao clicar, a extensão localiza a aba do SGPe que estiver ativa (chrome.tabs.query, já coberto pela permissão de host existente) e abre diretamente essa página na árvore de peças, trazendo essa aba para frente.
+
+A ação nunca varre nem lê o conteúdo de outras abas: usa só o texto selecionado pelo próprio usuário (info.selectionText, da API de menu de contexto) e o identificador da aba do SGPe ativa, para abrir a página pedida e focar essa aba. Nenhum dado de navegação é coletado, armazenado ou enviado a terceiros.

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Política de Privacidade — SGPe Buscador de páginas</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body { font-family: Arial, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; color: #111; line-height: 1.55; }
+  h1 { font-size: 22px; }
+  h2 { font-size: 16px; margin-top: 28px; }
+  footer { margin-top: 40px; font-size: 12px; color: #666; }
+</style>
+</head>
+<body>
+  <h1>Política de Privacidade — SGPe - Buscador de páginas</h1>
+  <p><strong>Última atualização:</strong> 8 de setembro de 2026</p>
+
+  <p>
+    Esta extensão para Google Chrome ("SGPe - Buscador de páginas") é uma ferramenta não oficial,
+    desenvolvida de forma independente para auxiliar servidores no uso da Pasta Digital (Aba Peças)
+    do sistema SGPe (Portal de Processos Eletrônicos do Estado de Santa Catarina).
+  </p>
+
+  <h2>1. O que a extensão faz</h2>
+  <p>
+    A extensão insere uma caixa flutuante na página do SGPe (no domínio
+    <code>sgpe.sea.sc.gov.br</code>) para localizar e abrir páginas e peças já carregadas na tela,
+    lendo a estrutura HTML exibida no próprio navegador do usuário - com a opção de restringir a
+    busca a um único processo (o principal ou um apensado/juntado específico). Ela também oferece
+    uma busca por palavra-chave que lê o texto nativo dos PDFs das peças do processo aberto (sem
+    OCR), para encontrar em qual peça e página um termo aparece.
+  </p>
+  <p>
+    Por fim, a extensão adiciona o item <strong>"Buscar no processo"</strong> ao menu de contexto
+    (botão direito) do navegador. Ele aparece em qualquer aba ou janela - não só em páginas do
+    SGPe - porque, na prática, o número de página costuma ser lido em outro lugar (por exemplo, um
+    PDF aberto numa aba separada). Ao selecionar um número e clicar nessa opção, a extensão abre
+    diretamente essa página na Pasta Digital do processo do SGPe que estiver aberto e ativo no
+    momento. Veja a seção 4 para os detalhes de quais dados essa funcionalidade acessa.
+  </p>
+
+  <h2>2. Requisições de rede e dados que NÃO são coletados</h2>
+  <p>
+    Esta extensão não coleta, não transmite, não armazena em servidores externos e não vende
+    nenhum dado pessoal ou de navegação a nenhum terceiro. Não há analytics, não há cookies de
+    rastreamento e não há comunicação com nenhum servidor de terceiros.
+  </p>
+  <p>
+    A funcionalidade de busca por palavra-chave faz requisições de rede (<code>fetch</code>)
+    exclusivamente para o próprio domínio <code>sgpe.sea.sc.gov.br</code>, usando a sessão já
+    autenticada do usuário no SGPe, para baixar o arquivo PDF de cada peça do processo aberto.
+    Esse download é o mesmo que o navegador já faria se o usuário abrisse a peça manualmente no
+    visualizador do SGPe. Depois de baixado, o texto do PDF é extraído e pesquisado inteiramente
+    dentro do navegador do usuário (usando a biblioteca de terceiros <code>pdf.js</code>, da
+    Mozilla, embutida na própria extensão) - nenhum conteúdo do PDF, resultado de busca ou dado da
+    página é enviado a qualquer servidor além do próprio SGPe, e nada é enviado a servidores de
+    terceiros.
+  </p>
+
+  <h2>3. Dados armazenados localmente</h2>
+  <p>
+    A extensão usa o <code>localStorage</code> do próprio navegador apenas para lembrar a posição
+    em que o usuário arrastou a caixa flutuante na tela. Essa informação (coordenadas X/Y) fica
+    salva exclusivamente no computador do usuário, nunca sai do navegador e pode ser apagada a
+    qualquer momento limpando os dados do site nas configurações do Chrome.
+  </p>
+
+  <h2>4. Permissões e escopo</h2>
+  <p>
+    O código que lê e interage com a página (localiza peças, simula cliques, baixa PDFs) só é
+    executado em páginas do domínio <code>sgpe.sea.sc.gov.br</code>. A extensão não solicita
+    permissão de acesso ao histórico de navegação, downloads, localização, câmera/microfone ou
+    qualquer outra API sensível do Chrome.
+  </p>
+  <p>
+    A exceção é o item "Buscar no processo" do menu de contexto (permissão "contextMenus"), que
+    aparece em qualquer site pelo motivo explicado na seção 1. Essa permissão não dá à extensão
+    acesso ao conteúdo das páginas em geral: ao clicar no item, ela recebe apenas o texto que o
+    próprio usuário já havia selecionado no momento do clique com o botão direito (entregue
+    diretamente pelo Chrome através da API de menu de contexto), usado só para extrair um número
+    de página. A extensão não lê, monitora nem armazena nenhum outro conteúdo da página onde a
+    seleção foi feita. Com esse número em mãos, ela localiza a aba do SGPe que já estiver aberta e
+    ativa no navegador do usuário e abre a página correspondente nela - nenhuma aba nova é aberta
+    e nenhum dado é enviado para fora do navegador do usuário.
+  </p>
+  <p>
+    A permissão adicional de "scripting" é usada apenas para carregar a biblioteca
+    <code>pdf.js</code> (embutida na extensão) dentro da própria página do SGPe no momento em que
+    o usuário aciona a busca por palavra-chave, em vez de carregá-la sempre - isso reduz o consumo
+    de memória quando a busca não está sendo usada.
+  </p>
+
+  <h2>5. Compartilhamento com terceiros</h2>
+  <p>
+    Não há compartilhamento de dados com terceiros. As únicas requisições de rede feitas pela
+    extensão são para o próprio domínio <code>sgpe.sea.sc.gov.br</code>, descritas na seção 2.
+  </p>
+
+  <h2>6. Alterações nesta política</h2>
+  <p>
+    Caso o funcionamento da extensão mude no futuro (por exemplo, passe a coletar algum dado),
+    esta política será atualizada e a data no topo será revisada.
+  </p>
+
+  <h2>7. Contato</h2>
+  <p>
+    Dúvidas sobre esta extensão podem ser enviadas para: <strong>danielspeck111@gmail.com</strong>.
+  </p>
+
+  <footer>
+    Desenvolvido por Daniel Rohden Speck. Ferramenta não oficial, sem vínculo com a SEA/SC ou com o SGPe.
+  </footer>
+</body>
+</html>

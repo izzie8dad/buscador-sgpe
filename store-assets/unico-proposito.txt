@@ -1,0 +1,5 @@
+O único propósito desta extensão é ajudar o usuário a localizar e abrir rapidamente uma página, peça ou trecho de texto na Pasta Digital (Aba Peças) do SGPe (sgpe.sea.sc.gov.br).
+
+Oferece três formas de busca: por número de página ou nome de peça (abre o item na árvore já carregada, com a opção de restringir a busca a um único processo, principal ou apensado); por palavra-chave no texto dos PDFs (sem OCR), lido localmente no navegador; e via menu de contexto ("Buscar no processo"), que abre na Pasta Digital do processo ativo a página de um número selecionado em qualquer texto do navegador.
+
+Toda leitura de estrutura, cliques simulados e downloads de PDF ocorrem só em sgpe.sea.sc.gov.br. O único contato com outras páginas é o menu de contexto, que lê apenas o texto selecionado (via API do Chrome) para extrair um número - nunca o resto do conteúdo. Não coleta, transmite nem armazena dados fora do navegador do usuário, nem envia nada a terceiros.

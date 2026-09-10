@@ -1,0 +1,31 @@
+Buscador SGPe — encontre a página certa em segundos
+
+O Buscador SGPe é uma extensão gratuita para Google Chrome que adiciona uma caixa de busca flutuante à Pasta Digital (Aba Peças) do SGPe, permitindo localizar e abrir qualquer página ou peça de um processo digital sem precisar navegar manualmente pela árvore de documentos.
+
+COMO FUNCIONA
+• Digite o número da página desejada e a extensão abre diretamente o trecho correspondente na peça certa.
+• Busque também pelo nome da peça — a extensão localiza e destaca o item na árvore do processo.
+• Busca por palavra-chave no texto nativo das peças em PDF (sem OCR): digite um termo e a extensão varre as peças do processo, mostra em quais delas o termo aparece e abre direto na primeira ocorrência, com grifado automático no visualizador nativo do SGPe. Antes de buscar, mostra uma estimativa de tempo; em processos com outros processos apensados/juntados, a busca cobre por padrão só o processo principal (bem mais rápido), com a opção de incluir também os apensados quando necessário.
+• Restrinja a busca a um único processo quando necessário: o campo "Nº do Processo" lista o processo principal e cada apensado/juntado encontrado na árvore (com a contagem de páginas de cada um), e permite focar a busca só nele — ou escolher "Todos os processos" para voltar a buscar na árvore inteira.
+• Menu de contexto "Buscar no processo": selecione um número de página em qualquer texto do navegador (por exemplo, num PDF aberto em outra aba ou janela, ou numa referência de checklist) e clique com o botão direito — a opção abre direto essa página na Pasta Digital do processo que estiver ativo, sem precisar copiar o número manualmente para a caixa de busca.
+• Funciona em qualquer processo carregado na Pasta Digital, com atualização automática conforme a árvore muda.
+• Interface simples: uma caixinha flutuante que pode ser arrastada, minimizada ou fechada a qualquer momento.
+
+PRIVACIDADE EM PRIMEIRO LUGAR
+O Buscador SGPe não coleta, não transmite a terceiros e não vende nenhum dado pessoal ou de navegação. Quase todo o processamento acontece localmente, dentro do seu navegador:
+• A única requisição de rede feita pela extensão é para o próprio domínio sgpe.sea.sc.gov.br, usando a sessão já autenticada do usuário, para baixar o PDF de cada peça durante a busca por palavra-chave — o mesmo download que já aconteceria abrindo a peça manualmente no visualizador do SGPe.
+• O texto do PDF é extraído e pesquisado inteiramente dentro do navegador (biblioteca de terceiros pdf.js, da Mozilla, embutida na extensão) — nenhum conteúdo de peça, resultado de busca ou dado da página é enviado a servidores de terceiros.
+• O item "Buscar no processo" do menu de contexto usa apenas o texto que o próprio usuário selecionou (fornecido pela API de menu de contexto do Chrome), só para extrair um número de página — a extensão não lê nem armazena o restante do conteúdo da página onde a seleção foi feita, e a ação só abre a aba do SGPe que o próprio usuário já tinha aberta.
+• Não há coleta de dados pessoais, histórico de navegação, analytics ou cookies de rastreamento.
+• O único dado salvo permanentemente é a posição em que você arrasta a caixinha flutuante na tela — guardado exclusivamente no armazenamento local do seu próprio navegador (localStorage), e nunca é enviado a lugar nenhum.
+• Fora o texto selecionado pelo usuário no menu de contexto (item acima), a leitura de conteúdo de página, os cliques simulados na árvore de peças e os downloads de PDF só acontecem dentro do domínio sgpe.sea.sc.gov.br; nenhum dado de outros sites é coletado, armazenado ou enviado a qualquer lugar.
+
+Política de privacidade completa: https://sites.google.com/view/privacypolicysgpebuscador/início
+
+QUEM DESENVOLVEU
+Esta extensão foi criada e é mantida por um servidor público efetivo do Estado de Santa Catarina, como uma iniciativa pessoal para tornar mais ágil o dia a dia de análise de processos no SGPe — tanto para si quanto para colegas que utilizam o sistema.
+
+IMPORTANTE: FERRAMENTA NÃO OFICIAL
+O Buscador SGPe é um projeto pessoal e independente. NÃO é um produto oficial do SGPe, da Secretaria de Estado da Administração (SEA/SC) ou de qualquer outro órgão do Governo de Santa Catarina. Não há qualquer vínculo institucional, patrocínio, homologação ou responsabilidade do Estado sobre esta extensão. Ela foi desenvolvida de forma independente, com o único objetivo de otimizar tarefas repetitivas de navegação dentro do sistema.
+
+Use por sua conta e risco, ciente de que se trata de uma ferramenta extraoficial e sem qualquer garantia de suporte contínuo. Sugestões, dúvidas ou problemas podem ser reportados diretamente ao desenvolvedor pelo contato informado na política de privacidade.

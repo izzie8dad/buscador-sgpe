@@ -1,0 +1,5 @@
+A permissão "scripting" é usada apenas para carregar a biblioteca pdf.js (arquivo embutido na própria extensão, vendor/pdf.min.js) dentro da página do SGPe, no momento em que o usuário aciona a busca por palavra-chave — em vez de carregá-la sempre, em toda página.
+
+Essa biblioteca é usada para ler o texto nativo dos PDFs das peças (sem OCR) e localizar em qual peça e página um termo de busca aparece. Carregá-la sob demanda, só quando a busca é realmente usada, evita consumir memória extra com ela no restante da navegação.
+
+Nenhum código é baixado de fora da extensão: o arquivo injetado (vendor/pdf.min.js) já vem empacotado dentro dela, sem buscar nem executar nenhum script remoto.
